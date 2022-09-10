@@ -12,7 +12,6 @@ const Title = styled('h1')(({ theme }) => ({
   fontFamily: 'Spline Sans Mono, monospace',
   fontSize: '70px',
   margin: '2rem',
-  maxWidth: '500px',
   pointerEvents: 'auto',
   textShadow:'0 10px 30px rgba(0, 0, 0, 0.5)',
 }))
@@ -21,7 +20,6 @@ const Title = styled('h1')(({ theme }) => ({
 const StyledSubmit = styled('button')(({theme}) => ({
   
     background: 'rgba(0, 0, 0, 0.2)',
-    border: '1px',
     fontSize: '16px',
     padding: '12px 30px',
     borderRadius: '14px',
@@ -58,8 +56,12 @@ const customStyles = {
   }),  
 }
 
+const config = { mass: 5, tension: 2000, friction: 200 }
+
 const Form = () => {
     const [symptoms, setSymptoms] = useState([])
+    const [formSubmitted, setFormSubmitted] = useState(false)
+    const [illness, SetIllness] = useState('') // MAke call to backend and set this to that return value
 
     const handleChange = (e) => {
       const options =[]
@@ -84,13 +86,14 @@ const Form = () => {
     ]
     
     const formatedData = data.map(sym => (
-      {value: sym, label: sym}
+      {value: sym, label: sym.split('_').join(' ')}
     ))
     
   return (
     <>  
+        {formSubmitted === false ?
         <div style={{}}>
-          <Title>Please Complete to Calculate Your Illness</Title>
+          <Title style={{maxWidth: '500px'}}>Please Complete to Calculate Your Illness</Title>
           <Box
               
               sx={{
@@ -115,9 +118,14 @@ const Form = () => {
                 styles={customStyles}
                 onChange={handleChange}
               />
-              <StyledSubmit onClick={() => console.log(symptoms)}>Calculate</StyledSubmit>
+              <StyledSubmit onClick={() => setFormSubmitted(true)}>Calculate</StyledSubmit>
           </Box>
-        </div>    
+        </div>
+        :
+        <div>
+          <Title style={{fontSize: '60px', display: 'flex', justifyContent: 'center'}}>You have {illness}</Title>
+        </div>
+        }    
     </>
   )
 }

@@ -12,9 +12,8 @@ const Home = () => {
     <>
         <h1>What's up, Doc?</h1>
         <p>
-            Instead of utilizing Google's Related health conditions to determine what your illness is, 
-            utilize our deep learning model. We at What's up, Doc? make every effort to provide 
-            everyone with a doctor's diagnosis of your potential illness.
+        Wondering what your symptoms might point to? Want to quickly know whether you should go to the doctor or not?
+        We can help. Leveraging machine learning, we are able to better predict what your symptoms might say about you.
         </p>
         <button className='home-btn'>
             <StyledLink to='/symptoms'>Enter Symptoms</StyledLink>

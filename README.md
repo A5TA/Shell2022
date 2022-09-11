@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+## Inspiration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In a post-COVID world struggling with short-staffed hospitals, unnecessary ER visits can mean the world of difference.  
+  
+Over 19% of hospitals in the US are suffering critical staffing shortages (_Data Brief: Health Care Workforce Challenges Threaten Hospitals’ Ability to Care for Patients | AHA_, 2021). Such shortages have costed hospitals over $24 Billion, just over the course of the pandemic.
 
-## Available Scripts
+So… we set off to explore how to solve such a looming issue.
 
-In the project directory, you can run:
+We have all been there. You search some cold symptoms and it tells you that you MAY have a cold, pneumonia, or about 20 hours left to live.  
+  
+_What’s up, Doc?_ aims to give more accurate information on what sickness you may have.  
 
-### `npm start`
+## What it does
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+After users submit their symptoms (cough, sneeze, etc.), the model predicts and returns what sickness the user is most likely to have along with some additional information/articles.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Challenges we ran into
 
-### `npm test`
+During the hackathon, we ran into a few issues that slowed us down temporarily.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+When working on connecting the frontend (react app) and backend (machine learning disease predictor model hosted on flask) of the application, we had trouble when connecting the flask api and connect it with react. After debugging and trying to find the root cause, re-training our ML model fixed the issue.
 
-### `npm run build`
+Usually, we were familiar with API’s that were hosted on websites but for _What’s up, Doc?_ we had to adapt to using an API that sent calls locally—which posed to be an interesting challenging.
+  
+Finally, the main challenge we ran into was combining our very different skills as a mix of machine learning enthusiasts and web app creators to create _What’s up, Doc?_.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Accomplishments that we're proud of
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   talk about how getting the react app to work and api connections
+-   integrate the mL model into a frontend application
+-   training a model on a list of symptoms, figuring out what architecture to use
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## What we learned
 
-### `npm run eject`
+- Collaborating in a hybrid work environment
+- Managing a backend and frontend efficiently
+- Deploying a machine learning model on a web interface
+- Spline 3D tool for react
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## What's next for What's up, Doc?
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- CT scan reports can be submitted and analyzed automatically by our model allowing doctors to process scans more accurately and efficiently.
+- Connect a database that stores severity of diseases to notify a user if we recommend they go to the doctor; also more information about the disease that could help a user confirm the diagnosis.
+- Increase even more diseases within the disease set including more rare ones, while providing additional conditions that can be resulting from these symptoms.

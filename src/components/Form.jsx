@@ -89,6 +89,29 @@ const Form = () => {
     }
 
     useEffect( () => { 
+      let url = 'http://127.0.0.1:5000/?symptoms='
+      for(let i = 0; i < symptoms.length; i++) {
+        if (i + 1 == symptoms.length) {
+          url = url.concat(symptoms[i])
+        } else {
+          url = url.concat(symptoms[i]+',')
+        }
+      }
+      // console.log(url)
+      async function fetchData() {
+          try {
+              const res = await axios.get(url); 
+              // console.log(res.data);
+              setIllness(res?.data)
+
+          } catch (err) {
+              console.log(err);
+          }
+      }
+      fetchData();
+    },[formSubmitted]);
+
+    useEffect( () => { 
       const options = {
         method: 'GET',
         url: `https://bing-news-search1.p.rapidapi.com//news/search?q=${illness}&safeSearch=Off&textFormat=Raw&freshness=Day&count=5`,
@@ -101,7 +124,7 @@ const Form = () => {
       async function fetchData() {
           try {
               const res = await axios.get(`https://bing-news-search1.p.rapidapi.com//news/search?q=${illness}&safeSearch=Off&textFormat=Raw&freshness=Day&count=3`, options); 
-              console.log(res.data);
+              // console.log(res.data);
               setSickNews(res?.data)
             
           } catch (err) {
@@ -166,7 +189,7 @@ const Form = () => {
           <Grid container spacing={3} style={{marginLeft: '10%', marginRight: '10%'}}>
               {sicknews.value.map((news, index) => (
                 <Grid item xs={3}>
-                  <Item square elevation={7} style={{height: '220px', position: 'relative'}}>
+                  <Item square elevation={7} style={{height: '220px', position: 'relative'}} key={index}>
                     <div style={{marginBottom: 10}}>
                       <Typography gutterBottom variant="subtitle1" component="div" display={'flex'} padding={1}>
                         {news.name}

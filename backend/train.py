@@ -4,16 +4,16 @@ from sklearn.ensemble import RandomForestClassifier
 
 
 def getTrainingData():
-    df = pd.read_excel("./data/Diseases.xlsx")
+    df = pd.read_excel("../data/Diseases.xlsx")
     disease_to_id = {d:idx for idx, d in enumerate(df["Disease"])}
 
-    df = pd.read_excel("./data/Symptoms.xlsx")
+    df = pd.read_excel("../data/Symptoms.xlsx")
     symptom_to_id = {d:idx for idx, d in enumerate(df["Symptom"])}
 
     print("Num Diseases: {}".format(len(disease_to_id)))
     print("Num Symptoms: {}".format(len(symptom_to_id)))
 
-    df = pd.read_csv("./data/dataset.csv")
+    df = pd.read_csv("../data/dataset.csv")
 
     Y = []
     X = []
@@ -38,7 +38,7 @@ def trainRandomForest():
     rf_model = RandomForestClassifier(max_depth=6, random_state=0)
     rf_model.fit(X, Y)
 
-    filename = "./model/rf_model.pkl"
+    filename = "../model/rf_model.pkl"
     pickle.dump(rf_model, open(filename, 'wb'))
 
     print("Training is Success! \nRandom forest model saved to {}".format(filename))
